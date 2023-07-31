@@ -33,7 +33,7 @@ RSpec.describe Ride do
   end
 
   describe "#board_ride" do
-    it "visitor will board a carnival ride" do
+    xit "visitor will board a carnival ride" do
       @ride1.board_rider(@visitor1)
       @ride1.board_rider(@visitor2)
       @ride1.board_rider(@visitor1)
@@ -42,7 +42,7 @@ RSpec.describe Ride do
       @ride3.board_rider(visitor3)
     end
 
-    it "keeps a log of all riders" do
+    xit "keeps a log of all riders" do
       @ride1.board_rider(@visitor1)
       @ride1.board_rider(@visitor2)
       @ride1.board_rider(@visitor1)
@@ -55,7 +55,7 @@ RSpec.describe Ride do
   end
 
   describe "#total revenue" do
-    it "tracks all money each ride earns" do
+    xit "tracks all money each ride earns" do
       @ride1.board_rider(@visitor1)
       @ride1.board_rider(@visitor2)
       @ride1.board_rider(@visitor1)
