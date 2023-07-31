@@ -33,39 +33,41 @@ RSpec.describe Ride do
   end
 
   describe "#board_ride" do
-    xit "visitor will board a carnival ride" do
+    it "visitor will board a carnival ride" do
       @ride1.board_rider(@visitor1)
       @ride1.board_rider(@visitor2)
       @ride1.board_rider(@visitor1)
-      @ride3.board_rider(visitor1)
-      @ride3.board_rider(visitor2)
-      @ride3.board_rider(visitor3)
+      @ride3.board_rider(@visitor1)
+      @ride3.board_rider(@visitor2)
+      @ride3.board_rider(@visitor3)
     end
 
-    xit "keeps a log of all riders" do
+    it "keeps a log of all riders" do
       @ride1.board_rider(@visitor1)
       @ride1.board_rider(@visitor2)
       @ride1.board_rider(@visitor1)
-      expect(@ride1.rider_log).to eq(@visitor1, @visitor2, @visitor1)
-      @ride3.board_rider(visitor1)
-      @ride3.board_rider(visitor2)
-      @ride3.board_rider(visitor3)
-      expect(ride3.rider_log).to eq(@visitor3)
+      expect(@ride1.rider_log).to be_a Hash
+      expect(@ride1.rider_log).to eq({@visitor1 => 2, @visitor2 => 1})
+
+      @ride3.board_rider(@visitor1)
+      @ride3.board_rider(@visitor2)
+      @ride3.board_rider(@visitor3)
+      expect(@ride3.rider_log).to eq({@visitor3 => 1})
     end
   end
 
   describe "#total revenue" do
-    xit "tracks all money each ride earns" do
+    it "tracks all money each ride earns" do
       @ride1.board_rider(@visitor1)
       @ride1.board_rider(@visitor2)
       @ride1.board_rider(@visitor1)
       expect(@visitor1.spending_money).to eq(8)
       expect(@visitor2.spending_money).to eq(4)
 
-      @ride3.board_rider(visitor1)
-      @ride3.board_rider(visitor2)
-      @ride3.board_rider(visitor3)
-      expect(@visitor2.spending_money).to eq(8)
+      @ride3.board_rider(@visitor1)
+      @ride3.board_rider(@visitor2)
+      @ride3.board_rider(@visitor3)
+      expect(@visitor1.spending_money).to eq(8)
       expect(@visitor2.spending_money).to eq(4)
       expect(@visitor3.spending_money).to eq(13)
 

@@ -19,4 +19,9 @@ class Visitor
       false
     end
   end
+
+  def pay_for_ride(admission_fee)
+    @spending_money -= admission_fee
+  end
+  
 end
