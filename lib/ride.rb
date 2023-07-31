@@ -9,17 +9,11 @@ class Ride
     @rider_log = Hash.new(0)
   end
 
-  # def rider_log
-  # end
-
   def board_rider(rider)
-
     if rider.tall_enough?(@min_height) && rider.preferences[0] == @excitement
       @rider_log[rider] += 1
       rider.pay_for_ride(@admission_fee)
-      @total_revenue += @admission_fee
+      @total_revenue += @admission_fee 
     end
   end
-
-
 end
