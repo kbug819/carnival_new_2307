@@ -2,7 +2,6 @@ require './lib/visitor'
 require './lib/ride'
 require './lib/carnival'
 
-
 RSpec.describe Carnival do
   before(:each) do
     @ride1 = Ride.new({ name: 'Carousel', min_height: 24, admission_fee: 1, excitement: :gentle })
@@ -21,7 +20,6 @@ RSpec.describe Carnival do
     @visitor3.add_preference(:thrilling)
     @visitor4.add_preference(:gentle)
     
-
     @carnival = Carnival.new("Dallas Fair", 14)
   end
 

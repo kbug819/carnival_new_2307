@@ -1,7 +1,6 @@
 require './lib/visitor'
 require './lib/ride'
 
-
 RSpec.describe Ride do
   before(:each) do
     @ride1 = Ride.new({ name: 'Carousel', min_height: 24, admission_fee: 1, excitement: :gentle })
@@ -88,5 +87,4 @@ RSpec.describe Ride do
       expect(@ride3.times_ridden).to eq(1)
     end
   end
-
 end
