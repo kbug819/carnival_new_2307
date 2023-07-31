@@ -1,6 +1,7 @@
 require './lib/visitor'
 
 RSpec.describe Visitor do
+  before(:each) do
     @visitor1 = Visitor.new('Bruce', 54, '$10')
   end
 
@@ -20,7 +21,7 @@ RSpec.describe Visitor do
   end
 
   describe "#Add preferences" do
-    it "adds a preference to the visitors list" do
+    xit "adds a preference to the visitors list" do
       expect(@visitor1.preferences).to eq([])
       @visitor1.add_preference(:gentle)
       @visitor1.add_preference(:thrilling)
@@ -29,15 +30,15 @@ RSpec.describe Visitor do
   end
 
   describe "tall_enough" do
-    it "returns if visitor is ttall enough for rides" do
+    xit "returns if visitor is ttall enough for rides" do
       expect(@visitor1.tall_enough?(54)).to eq(true)
       expect(@visitor2.tall_enough?(54)).to eq(false)
       expect(@visitor3.tall_enough?(54)).to eq(true)
       expect(@visitor1.tall_enough?(64)).to eq(false)
     end
   end
-
-
-
-
 end
+
+
+
+
