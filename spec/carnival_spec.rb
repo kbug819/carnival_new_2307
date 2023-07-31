@@ -59,10 +59,46 @@ RSpec.describe Carnival do
       @ride3.board_rider(@visitor3)
       @ride2.board_rider(@visitor1)
       @ride2.board_rider(@visitor4)
-      
-    
+
       expect(@carnival.most_popular_rider).to eq(@ride1)
     end
   end
 
+  describe "#most profitable ride" do
+    it "returns the most profitable ride" do
+      @carnival.add_ride(@ride1)
+      @carnival.add_ride(@ride2)
+      @carnival.add_ride(@ride3)
+
+      @ride1.board_rider(@visitor1)
+      @ride1.board_rider(@visitor2)
+      @ride1.board_rider(@visitor1)
+      @ride1.board_rider(@visitor4)
+      @ride3.board_rider(@visitor1)
+      @ride3.board_rider(@visitor2)
+      @ride3.board_rider(@visitor3)
+      @ride2.board_rider(@visitor1)
+      @ride2.board_rider(@visitor4)
+      expect(@carnival.most_profitable_ride).to eq(@ride2)
+    end
+  end
+
+  describe "#total_revenue" do
+    it "adds all revenue from event" do
+      @carnival.add_ride(@ride1)
+      @carnival.add_ride(@ride2)
+      @carnival.add_ride(@ride3)
+
+      @ride1.board_rider(@visitor1)
+      @ride1.board_rider(@visitor2)
+      @ride1.board_rider(@visitor1)
+      @ride1.board_rider(@visitor4)
+      @ride3.board_rider(@visitor1)
+      @ride3.board_rider(@visitor2)
+      @ride3.board_rider(@visitor3)
+      @ride2.board_rider(@visitor1)
+      @ride2.board_rider(@visitor4)
+      expect(@carnival.total_revenue).to eq(16)
+    end
+  end
 end
