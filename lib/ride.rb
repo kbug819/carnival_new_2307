@@ -16,4 +16,12 @@ class Ride
       @total_revenue += @admission_fee 
     end
   end
+
+  def times_ridden
+    sum = 0
+    @rider_log.values.each do |num|
+      sum += num
+    end
+    sum
+  end
 end

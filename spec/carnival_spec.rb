@@ -19,7 +19,7 @@ RSpec.describe Carnival do
     @visitor2.add_preference(:gentle)
     @visitor2.add_preference(:thrilling)
     @visitor3.add_preference(:thrilling)
-    @visitor.add_preference(:gentle)
+    @visitor4.add_preference(:gentle)
     
 
     @carnival = Carnival.new("Dallas Fair", 14)
@@ -59,6 +59,7 @@ RSpec.describe Carnival do
       @ride3.board_rider(@visitor3)
       @ride2.board_rider(@visitor1)
       @ride2.board_rider(@visitor4)
+      
     
       expect(@carnival.most_popular_rider).to eq(@ride1)
     end
